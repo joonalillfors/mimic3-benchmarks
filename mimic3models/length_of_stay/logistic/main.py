@@ -100,6 +100,8 @@ def main():
         json.dump(ret, res_file)
 
     prediction = linreg.predict(test_X)
+    score = linreg.score(test_X, test_y)
+    print("R-squared score:", score)
 
     with open(os.path.join(result_dir, 'test_{}.json'.format(file_name)), 'w') as res_file:
         ret = print_metrics_regression(test_y, prediction)
