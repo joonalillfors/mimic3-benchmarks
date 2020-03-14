@@ -56,14 +56,16 @@ def main():
 
     print('Reading data and extracting features ...')
     n_train = min(100000, train_reader.get_number_of_examples())
+    print('Train read')
     n_val = min(100000, val_reader.get_number_of_examples())
+    print('Validation read')
 
     (train_X, train_y, train_names, train_ts) = read_and_extract_features(
         train_reader, n_train, args.period, args.features)
-
+    print('Train extracted')
     (val_X, val_y, val_names, val_ts) = read_and_extract_features(
         val_reader, n_val, args.period, args.features)
-
+    print('Validation extracted')
     (test_X, test_y, test_names, test_ts) = read_and_extract_features(
         test_reader, test_reader.get_number_of_examples(), args.period, args.features)
 
